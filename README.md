@@ -25,5 +25,6 @@ startPalword.bat
 ```
 
 * 引用 
-> docker 镜像修改来自：https://github.com/jammsen/docker-palworld-dedicated-server 
+> docker 镜像修改来自：https://github.com/jammsen/docker-palworld-dedicated-server
+
 > 服务器配置文件 参考：https://github.com/knva/PalWorld_server_config 
