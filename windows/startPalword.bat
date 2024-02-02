@@ -84,4 +84,3 @@ goto :eof
 	
 	PalServer.exe -port=%GAME_PORT% -players=%GAME_MAX_PLAYERS% -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS
 goto :eof
-
