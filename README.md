@@ -19,10 +19,11 @@ chmod +x startPalworldInDocker.sh
 ```
 
 * Windows \
-'''
+```
 curl -o startPalword.bat https://mirror.ghproxy.com/https://raw.githubusercontent.com/guestc/palworld-server-start-script/main/windwos/startPalword.bat
 startPalword.bat
-'''
+```
+
 * 引用 
 docker 镜像修改来自：https://github.com/jammsen/docker-palworld-dedicated-server
 服务器配置文件 参考：https://github.com/knva/PalWorld_server_config
