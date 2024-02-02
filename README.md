@@ -1,6 +1,6 @@
 # palworld-server-start-script
 ## 一键启动帕鲁服！
-* Linux
+* Linux\
 '''shell
 wget https://github.com/guestc/palworld-server-start-script/blob/main/linux/startPalworldInDocker.sh \
 wget https://github.com/guestc/palworld-server-start-script/blob/main/linux/env.list \
