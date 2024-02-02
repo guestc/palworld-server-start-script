@@ -5,15 +5,15 @@ if exist "%CD%\PalServer.exe" (
 	goto :Main
 )
 
-set /p GAME_PATH=ÇëÊäÈëÓÎÏ··şÎñ¶Ë°²×°Ä¿Â¼(Ö±½Ó»Ø³µÄ¬ÈÏµ±Ç°Ä¿Â¼):
+set /p GAME_PATH=è¯·è¾“å…¥æ¸¸æˆæœåŠ¡ç«¯å®‰è£…ç›®å½•(ç›´æ¥å›è½¦é»˜è®¤å½“å‰ç›®å½•):
 if "%GAME_PATH%"=="" (
 	set GAME_PATH=%CD%
 )
-echo ÓÎÏ··şÎñ¶Ë°²×°Ä¿Â¼:%GAME_PATH%
+echo æ¸¸æˆæœåŠ¡ç«¯å®‰è£…ç›®å½•:%GAME_PATH%
 goto :Main
 
 :Download_steamcmd
-	::¼ì²âsteamcmd
+	::æ£€æµ‹steamcmd
 	if exist "%GAME_PATH%\steamcmd\steamcmd.exe" (
 		goto :eof
 	)
@@ -34,53 +34,53 @@ goto :eof
 	cd "%GAME_PATH%"
 	call :Update_gameserver
 	if not exist "%GAME_PATH%\PalServer.exe" (
-		echo °²×°»ò¸üĞÂÊ§°Ü£¬ÇëÁªÏµ×÷Õß
+		echo å®‰è£…æˆ–æ›´æ–°å¤±è´¥ï¼Œè¯·è”ç³»ä½œè€…
 		pause
 		goto :eof
 	)
 	
-	::Ğ´ÈëÅäÖÃÎÄ¼ş
+	::å†™å…¥é…ç½®æ–‡ä»¶
 	if not exist "%GAME_PATH%\Pal\Saved\Config\WindowsServer\PalWorldSettings.ini" (
 		:Set_config
 		echo inconfig
 		if not exist "%GAME_PATH%\Pal\Saved\Config\WindowsServer\" (
 			mkdir "%GAME_PATH%\Pal\Saved\Config\WindowsServer\"
 		)
-		echo ¼´½«´ò¿ªÅäÖÃÎÄ¼şÍøÕ¾£ºhttps://pal-world-server-config.vercel.app/
-		echo ÍøÕ¾ÓÉÀ´×Ô£ºhttps://github.com/knva/PalWorld_server_config
+		echo å³å°†æ‰“å¼€é…ç½®æ–‡ä»¶ç½‘ç«™ï¼šhttps://pal-world-server-config.vercel.app/
+		echo ç½‘ç«™ç”±æ¥è‡ªï¼šhttps://github.com/knva/PalWorld_server_config
 		start https://pal-world-server-config.vercel.app/
-		echo ÅäÖÃºÃ·şÎñÆ÷ÉèÖÃ¾Íµã»÷ÍøÒ³×îÉÏ·½µÄÏÂÔØÅäÖÃÎÄ¼ş
-		echo ±£´æµ½Ä¿Â¼£º%GAME_PATH%\Pal\Saved\Config\WindowsServer\
-		echo ±£´æÍê³Éºó»Ø³µ
+		echo é…ç½®å¥½æœåŠ¡å™¨è®¾ç½®å°±ç‚¹å‡»ç½‘é¡µæœ€ä¸Šæ–¹çš„ä¸‹è½½é…ç½®æ–‡ä»¶
+		echo ä¿å­˜åˆ°ç›®å½•ï¼š%GAME_PATH%\Pal\Saved\Config\WindowsServer\
+		echo ä¿å­˜å®Œæˆåå›è½¦
 		explorer "%GAME_PATH%\Pal\Saved\Config\WindowsServer\"
 		pause
 		
 		if not exist "%GAME_PATH%\Pal\Saved\Config\WindowsServer\PalWorldSettings.ini" (
-			echo Î´ÄÜÕıÈ·¶ÁÈ¡ÅäÖÃÎÄ¼ş,ÇëÖØÊÔ
+			echo æœªèƒ½æ­£ç¡®è¯»å–é…ç½®æ–‡ä»¶,è¯·é‡è¯•
 			goto :Set_config
 		)
 	)
-	::¶ÁÈ¡ÅäÖÃÎÄ¼ş
+	::è¯»å–é…ç½®æ–‡ä»¶
 	for /f "tokens=*" %%a in (%GAME_PATH%\Pal\Saved\Config\WindowsServer\PalWorldSettings.ini) do (
 		set GAME_CONFIG_STR=%%a
 	)
 	::echo config:%GAME_CONFIG_STR%
-	::¶ÁÈ¡ÓÎÏ·¶Ë¿Ú
+	::è¯»å–æ¸¸æˆç«¯å£
 	for /f "delims=" %%a in ('powershell -Command "$inputString = '%GAME_CONFIG_STR%'; if($inputString -match 'PublicPort=[0-9]+') { $matches[0] }"') do set "re_result=%%a"
 	set GAME_PORT=%re_result:~11%
-	echo ÓÎÏ··şÎñÆ÷¶Ë¿ÚÎª£º%GAME_PORT%
-	::¶ÁÈ¡·şÎñÆ÷ÈËÊıÉÏÏŞ
+	echo æ¸¸æˆæœåŠ¡å™¨ç«¯å£ä¸ºï¼š%GAME_PORT%
+	::è¯»å–æœåŠ¡å™¨äººæ•°ä¸Šé™
 	for /f "delims=" %%a in ('powershell -Command "$inputString = '%GAME_CONFIG_STR%'; if($inputString -match 'ServerPlayerMaxNum=[0-9]+') { $matches[0] }"') do set "re_result=%%a"
 	set GAME_MAX_PLAYERS=%re_result:~19%
-	echo ÓÎÏ··şÎñÆ÷×î´óÈËÊıÎª£º%GAME_MAX_PLAYERS%
+	echo æ¸¸æˆæœåŠ¡å™¨æœ€å¤§äººæ•°ä¸ºï¼š%GAME_MAX_PLAYERS%
 	
-	::»ñÈ¡¹«Íøip
+	::è·å–å…¬ç½‘ip
 	for /f "delims=" %%i in ('curl -s "https://www.taobao.com/help/getip.php"') do set "responseData=%%i"
 	for /f "delims=" %%a in ('powershell -Command "$inputString = '%responseData%'; if($inputString -match '[0-9]+.[0-9]+.[0-9]+.[0-9]+') { $matches[0] }"') do set "re_result=%%a"
 	set PUBLIC_IP=%re_result%
 	
-	echo ±¾µØÁ¬½ÓµØÖ·£º127.0.0.1:%GAME_PORT%
-	echo ÍâÍøÁ¬½ÓµØÖ·£º%PUBLIC_IP%:%GAME_PORT%
+	echo æœ¬åœ°è¿æ¥åœ°å€ï¼š127.0.0.1:%GAME_PORT%
+	echo å¤–ç½‘è¿æ¥åœ°å€ï¼š%PUBLIC_IP%:%GAME_PORT%
 	
 	PalServer.exe -port=%GAME_PORT% -players=%GAME_MAX_PLAYERS% -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS
 goto :eof
