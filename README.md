@@ -18,7 +18,7 @@ chmod +x startPalworldInDocker.sh
 ./startPalworldInDocker.sh
 ```
 
-* Windows
+* Windows 
 '''
 curl -o startPalword.bat https://mirror.ghproxy.com/https://raw.githubusercontent.com/guestc/palworld-server-start-script/main/windwos/startPalword.bat
 startPalword.bat
