@@ -2,14 +2,14 @@
 ## 一键启动帕鲁服！
 * Linux 
 ```
-wget https://raw.githubusercontent.com/guestc/palworld-server-start-script/main/linux/startPalworldInDocker.sh \
-wget https://raw.githubusercontent.com/guestc/palworld-server-start-script/main/linux/env.list \
+wget https://raw.githubusercontent.com/guestc/palworld-server-start-script/main/linux/startPalworldInDocker.sh &&
+wget https://raw.githubusercontent.com/guestc/palworld-server-start-script/main/linux/env.list &&
 chmod +x startPalworldInDocker.sh
 ```
 如果下载失败，尝试下面的
 ```
-wget https://mirror.ghproxy.com/https://raw.githubusercontent.com/guestc/palworld-server-start-script/main/linux/startPalworldInDocker.sh \
-wget https://mirror.ghproxy.com/https://raw.githubusercontent.com/guestc/palworld-server-start-script/main/linux/env.list \
+wget https://mirror.ghproxy.com/https://raw.githubusercontent.com/guestc/palworld-server-start-script/main/linux/startPalworldInDocker.sh &&
+wget https://mirror.ghproxy.com/https://raw.githubusercontent.com/guestc/palworld-server-start-script/main/linux/env.list &&
 chmod +x startPalworldInDocker.sh
 ```
 
