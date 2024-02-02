@@ -9,7 +9,7 @@ chmod +x startPalworldInDocker.sh
 
 下载完后，修改env.list里面服务器设置后直接启动
 ```
-'./startPalworldInDocker.sh'
+./startPalworldInDocker.sh
 ```
 
 * Windows
